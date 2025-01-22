@@ -1,0 +1,13 @@
+diff --git a/packages/backend/server/scripts/self-host-predeploy.js b/packages/backend/server/scripts/self-host-predeploy.js
+index 04cd38082..95eaf5094 100644
+--- a/packages/backend/server/scripts/self-host-predeploy.js
++++ b/packages/backend/server/scripts/self-host-predeploy.js
+@@ -3,7 +3,7 @@ import { generateKeyPairSync } from 'node:crypto';
+ import fs from 'node:fs';
+ import path from 'node:path';
+ 
+-const SELF_HOST_CONFIG_DIR = '/root/.affine/config';
++const SELF_HOST_CONFIG_DIR = process.env.AFFINE_CONFIG_PATH || '/root/.affine/config';
+ 
+ function generateConfigFile() {
+   const content = fs.readFileSync('./dist/config/affine.js', 'utf-8');
